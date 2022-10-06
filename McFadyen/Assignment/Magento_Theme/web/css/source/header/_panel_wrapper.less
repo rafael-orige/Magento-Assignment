@@ -1,0 +1,41 @@
+.page-header {
+    .panel.wrapper {
+        background-color: #000;
+    }
+
+    .header.panel {
+        padding: 0;
+    }
+}
+
+.top-message {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+
+    .message {
+        color: #FFF;
+        margin: 0;
+    }
+
+    button {
+        background-color: #EDC5BD;
+        border-radius: 3px;
+        color: #000;
+        margin-left: 40px;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .top-message {
+        align-items: center;
+        flex-direction: column;
+
+        button {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+}

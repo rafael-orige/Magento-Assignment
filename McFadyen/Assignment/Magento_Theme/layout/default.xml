@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700" src_type="url" />
+
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="paypal.partnet.right.logo" remove="true" />
+
+    <!-- Header -->
+        <referenceContainer name="header.panel.wrapper">
+            <container name="top.header.message" label="Top Header Message" htmlTag="div" htmlClass="top-message">
+                <block name="message" template="Magento_Theme::header_message.phtml" />
+            </container>
+
+            <referenceBlock name="top.links">
+                <referenceBlock name="register-link" remove="true" />
+                <referenceBlock name="header" remove="true" />
+                <referenceBlock name="authorization-link-login" template="Magento_Theme::header/authorization.phtml" />
+            </referenceBlock>
+        </referenceContainer>
+
+        <!-- Logo -->
+            <referenceBlock name="logo">
+                <arguments>
+                    <argument name="logo_file" xsi:type="string">images/image.png</argument>
+                    <argument name="logo_width" xsi:type="string">50</argument>
+                    <argument name="logo_height" xsi:type="string">50</argument>
+                </arguments>
+            </referenceBlock>
+
+        <!--Creating header columns-->
+            <referenceContainer name="header-wrapper">
+                <container name="header.left" label="headerLeft" htmlTag="div" htmlClass="left-col" />
+                <container name="header.right" label="headerRight" htmlTag="div" htmlClass="right-col">
+                    <block name="fav.icon" template="Magento_Theme::header/fav_icon.phtml" />
+                    <block name="consultation" template="Magento_Theme::header/consultation.phtml" />
+                </container>
+            </referenceContainer>
+
+        <!-- Move -->
+            <move element="logo" destination="header.left" />
+            <move element="top.search" destination="header.left" after="logo" />
+
+            <move element="minicart" destination="header.right" />
+            <move element="authorization-link-login" destination="header.right" before="minicart" />
+            <move element="fav.icon" destination="header.right" after="authorization-link-login" />
+        <!-- HEADER END -->
+    </body>
+</page>
